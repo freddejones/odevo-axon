@@ -1,0 +1,28 @@
+### Create a work order
+POST http://localhost:8080/workorders
+Content-Type: application/json
+
+{
+  "instruction": "The work to be done!"
+}
+
+### Configure a work order to be used in subsequent calls
+@woId = 396d6372-4238-4350-afe8-88cc37148a55
+
+### GET a specific workorder by id
+GET http://localhost:8080/workorders/{{woId}}
+Content-Type: application/json
+
+### assign person to workorder
+PUT http://localhost:8080/workorders/{{woId}}/assignee
+Content-Type: application/json
+
+{
+  "personId": "b921f1dd-3cbc-0495-fdab-8cd14d33f0aa"
+}
+
+### Execute a work order
+PUT http://localhost:8080/workorders/{{woId}}/execution
+Content-Type: application/json
+
+{}
